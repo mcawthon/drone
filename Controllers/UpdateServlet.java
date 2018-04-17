@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Grocery;
-import dbhelpers.UpdateQuery;
+import helpers.UpdateQuery;
 
 /**
  * Servlet implementation class UpdateBookServlet
