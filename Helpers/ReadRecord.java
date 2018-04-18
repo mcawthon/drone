@@ -81,7 +81,7 @@ public class ReadRecord
 	
 	public void doDroneService()
 	{
-		String query = "select * from drone where droneID = ?";
+		String query = "select * from droneService where serviceID = ?";
 		
 		try
 		{
@@ -182,7 +182,8 @@ public class ReadRecord
 			e.printStackTrace();
 		}
 	}
-
+	
+	
 	public Drone getDrone() 
 	{
 		return this.drone;
