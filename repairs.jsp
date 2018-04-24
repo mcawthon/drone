@@ -20,9 +20,9 @@
 
         </div>
         <div style="margin-top: 45px;">
-            <%= repairTable%>
+            <%= repairstable %>
         </div>
         
-</div>
+	</div>
 </body>
 </html>
