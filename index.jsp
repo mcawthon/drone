@@ -10,12 +10,12 @@
 <body>
     <div class="container">
             <form name="login_form" method="post" action="login" id="logform">
-                <label>User Name :</label><br><input />
+                <label>User Name :</label><br><input name = "username"/>
                 <br>
-                <label>Password  :</label><br><input />
+                <label>Password  :</label><br><input type="password" name = "password"/>
                 <br><br>
                 <input type="submit" name="submit" value="Log In"/>     
             </form> 
-        </div>
+    </div>
 </body>
 </html>
