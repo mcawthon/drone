@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import helpers.LoginHelper;
+import helpers.ReadQuery;
 
 @WebServlet(urlPatterns = { "/login" })
 public class LoginServlet extends HttpServlet
@@ -35,9 +36,13 @@ public class LoginServlet extends HttpServlet
 		
 		if(validUser)
 		{
-			String url = "services.jsp";
+			String url = "repairs.jsp";
 		    
+			ReadQuery rq = new ReadQuery("droneservice","root","admin");
+			String repairstable = rq.getDroneServiceHTML();
+			
 		    RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+		    request.setAttribute("repairstable", repairstable);
 		    dispatcher.forward(request, response);
 		}
 		else
