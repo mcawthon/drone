@@ -3,5 +3,5 @@
 /servers
 DroneService/.settings/
 DroneService/build/classes/
-.classpath
-.project
+DroneService/.settings
+DroneService/.project
