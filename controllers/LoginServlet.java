@@ -39,10 +39,9 @@ public class LoginServlet extends HttpServlet
 			String url = "repairs.jsp";
 		    
 			ReadQuery rq = new ReadQuery("droneservice","root","admin");
-			String repairstable = rq.getDroneServiceHTML();
 			
 		    RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-		    request.setAttribute("repairstable", repairstable);
+		    request.setAttribute("repairstable", rq.getDroneServiceHTML());
 		    dispatcher.forward(request, response);
 		}
 		else
