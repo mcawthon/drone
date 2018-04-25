@@ -1,7 +1,4 @@
 /.metadata/
 /.recommenders/
 /servers
-DroneService/.settings/
-DroneService/build/classes/
-DroneService/.settings
-DroneService/.project
+*.class
