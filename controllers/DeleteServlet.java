@@ -9,28 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import helpers.ReadQuery;
-
-//import helpers.ReadQuery;
+import helpers.DeleteQuery;
 
 /**
- * Servlet implementation class ReadServlet
+ * Servlet implementation class DeleteServlet
  */
-@WebServlet(
-		description = "Controller for reading from database", 
-		urlPatterns = { 
-				"/ReadServlet", 
-				"/read"
-		})
-public class ReadServlet extends HttpServlet 
-{
+@WebServlet(urlPatterns = { "/delete" })
+public class DeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ReadServlet()
-    {
+    public DeleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,77 +29,49 @@ public class ReadServlet extends HttpServlet
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-	{
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-	{
-		String query = request.getParameter("string");
-		String type = query.substring(0,1);
-		String id = query.substring(1);
-		if(type.equalsIgnoreCase('d'))
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String type = request.getParameter("type");
+		if(type = "s")
 		{
-			// Create a ReadQuery helper object
-			ReadQuery rq = new ReadQuery("droneservice", "root", "admin");
-			rq.readDrone();
-			// Get the html table from the ReadQuery object
-			String table = rq.getDroneHTML();
-			// pass execution control to read.jsp along with the table
-			request.setAttribute("table", table);
-			String url = "/drone.jsp";
+			int serviceid = Integer.parseInt(request.getParameter("serviceid"));
+		
+			DeleteQuery dq = new DeleteQuery("droneservice", "root", "admin");
+			
+			dq.doServiceDelete(serviceid);
+			
+			String url = "/read";
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 			dispatcher.forward(request, response);
 		}
-		else if(type.equalsIgnoreCase("s"))
+		if(type = "p")
 		{
-			ReadQuery rq = new ReadQuery("droneservice", "root", "admin");
-			rq.readDroneService();
+			int partid = Integer.parseInt(request.getParameter("serviceid"));
+		
+			DeleteQuery dq = new DeleteQuery("droneservice", "root", "admin");
 			
-			String table = rq.getServiceHTML();
+			dq.doPartDelete(partid);
 			
-			request.setAttribute("table", table);
-			String url = "/service.jsp";
-			
-			RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-			dispatcher.forward(request, response);
-		}
-		else if(type.equalsIgnoreCase("p"))
-		{
-			ReadQuery rq = new ReadQuery("droneservice", "root", "admin");
-			rq.readPart();
-			
-			String table = rq.getPartHTML();
-			
-			request.setAttribute("table", table);
-			
-			RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-			dispatcher.forward(request, response);
-		}
-		else if(type.equalsIgnoreCase("e"))
-		{
-			ReadQuery rq = new ReadQuery("droneservice", "root", "admin");
-			rq.readEmployee();
-			
-			String table = rq.getEmployeeHTML();
-			
-			request.setAttribute("table", table);
-			String url = "employee.jsp";
+			String url = "/read";
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 			dispatcher.forward(request, response);
 		}
 		else
 		{
-			String url = "index.jsp";
+			String url = "/read";
+			
 			RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 			dispatcher.forward(request, response);
 		}
+		
 	}
 
 }
