@@ -80,6 +80,12 @@ public class HTMLHelper
 	}
 	
 	//Creates plain text
+	public void PlainText(int value)
+	{
+		htmlString += value;
+	}
+	
+	//Creates plain text
 	public void PlainText(String text)
 	{
 		htmlString += text;
