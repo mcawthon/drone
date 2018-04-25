@@ -2,6 +2,7 @@ package controllers;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -68,11 +69,11 @@ public class AddServlet extends HttpServlet {
 	    RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 	    dispatcher.forward(request, response);
 		}
-		else if(type = "p")
+		else if(type.equals("p"))
 		{
 			int partid = Integer.parseInt(request.getParameter("partid"));
 			String serialnumber = request.getParameter("serialnumber");
-		    long expdate = Date.parse(request.getParameter("expdate"));
+		    String expdate = request.getParameter("expdate");
 		    String supplierID = request.getParameter("supplierid");
 		    String condition = request.getParameter("condition");
 		    int reorder = Integer.parseInt(request.getParameter("reorderlevel"));
@@ -81,7 +82,7 @@ public class AddServlet extends HttpServlet {
 		    Part part = new Part();
 		    part.setPartID(partid);
 		    part.setSerialNum(serialnumber);
-		    part.setExpirationDate(expDate);
+		    part.setExpirationDate(expdate);
 		    part.setSupplierID(supplierID);
 		    part.setCondition(condition);
 		    part.setReorderLevel(reorder);
