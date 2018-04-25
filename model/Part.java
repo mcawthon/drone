@@ -1,12 +1,10 @@
 package model;
 
-import java.util.Date;
-
 public class Part 
 {
 	private int partID;
 	private String serialNum;
-	private Date expirationDate;
+	private String expirationDate;
 	private String supplierID;
 	private String condition;
 	private int reorderLevel;
@@ -17,7 +15,7 @@ public class Part
 		
 	}
 
-	public Part(int partID, String serialNum, Date expirationDate, String supplierID, String condition,
+	public Part(int partID, String serialNum, String expirationDate, String supplierID, String condition,
 			int reorderLevel, int amount) 
 	{
 		this.partID = partID;
@@ -49,14 +47,14 @@ public class Part
 		this.serialNum = serialNum;
 	}
 
-	public Date getExpirationDate() 
+	public String getExpirationDate() 
 	{
 		return expirationDate;
 	}
 
-	public void setExpirationDate(Date expirationDate) 
+	public void setExpirationDate(String expdate) 
 	{
-		this.expirationDate = expirationDate;
+		this.expirationDate = expdate;
 	}
 
 	public String getSupplierID() 
