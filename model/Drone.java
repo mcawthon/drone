@@ -1,5 +1,4 @@
 package model;
-
 import java.util.Date;
 
 public class Drone 
@@ -14,7 +13,12 @@ public class Drone
 	
 	public Drone()
 	{
-		
+		droneID = 0;
+		make = "";
+		model = "";
+		year = "";
+		vin = "";
+		faaNum = "";
 	}
 
 	public Drone(int droneID, String make, String model, String year, String vin, String faaNum, Date lastService)
