@@ -4,47 +4,31 @@ public class User
 {
 	private String userID;
 	private String password;
-	private String type;
 	
 	public User()
 	{
-		
+		userID = "";
+		password = "";
 	}
 	
-	public User(String userID, String password, String type)
-	{
-		this.userID = userID;
-		this.password = password;
-		this.type = type;
-	}
-	
-	public String getUserID() 
-	{
-		return userID;
-	}
-
-	public void setUserID(String userID) 
+	public void setUserID(String userID)
 	{
 		this.userID = userID;
 	}
-
-	public String getPassword() 
-	{
-		return password;
-	}
-
+	
 	public void setPassword(String password)
 	{
 		this.password = password;
 	}
-
-	public String getType() 
+	
+	public String getUserID()
 	{
-		return type;
+		return userID;
 	}
-
-	public void setType(String type) 
+	
+	public String getPassword()
 	{
-		this.type = type;
+		return password;
 	}
 }
+
