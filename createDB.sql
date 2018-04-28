@@ -1,10 +1,14 @@
 create database droneservice;
 
+USE droneservice;
+
 Create Table Users(
 	userID VARCHAR(20) PRIMARY KEY, 
 	password VARCHAR(45), 
-	type VARCHAR(10)
-)ENGINE = InnoDB;;
+	type VARCHAR(10),
+	UNIQUE KEY `userID_UNIQUE` (`userID`),
+  	UNIQUE KEY `username_UNIQUE` (`username`)
+)ENGINE = InnoDB;
 
 Create Table DroneInventory(
 	droneID VARCHAR(45) NOT NULL,
@@ -17,7 +21,7 @@ Create Table DroneInventory(
 	locationID VARCHAR(45),
 
 	CONSTRAINT droneInv_droneID_pk PRIMARY KEY(droneID)
-)ENGINE = InnoDB;;
+)ENGINE = InnoDB;
 
 Create Table Employee(
 	employeeID INT NOT NULL,
@@ -67,4 +71,4 @@ Create Table Service_has_Part(
 );
 
 
-insert into users values ('admin','admin','admin');
+insert into users values ('admin','jGl25bVBBBW96Qi9Te4V37Fnqchz/Eu4qB9vKrRIqRg=','admin'),('matt','pmWkWSBCL51Bfkhn79xPuKBKHz//H6B+mY6G9/eieuM=','admin'),('mike','pmWkWSBCL51Bfkhn79xPuKBKHz//H6B+mY6G9/eieuM=','admin');

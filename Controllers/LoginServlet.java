@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import Helpers.LoginHelper;
 import Helpers.ReadQuery;
 import model.User;
+import utilities.PasswordService;
 
 @WebServlet(urlPatterns = { "/login" })
 public class LoginServlet extends HttpServlet
@@ -63,6 +64,10 @@ public class LoginServlet extends HttpServlet
 				}else {
 					String username = request.getParameter("username");
 					String password = request.getParameter("password");
+					
+					PasswordService pws = new PasswordService();					
+					String encryptedPW = pws.encrypt(password);
+					//System.out.println(encryptedPW);
 					LoginHelper lh;
 					
 					User validUser = null;
@@ -70,7 +75,7 @@ public class LoginServlet extends HttpServlet
 					try {
 						lh = new LoginHelper();
 						
-						validUser = lh.validateUser(username, password);
+						validUser = lh.validateUser(username, encryptedPW);
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
