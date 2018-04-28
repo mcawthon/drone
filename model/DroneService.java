@@ -3,8 +3,8 @@ package model;
 public class DroneService 
 {
 	private int serviceID;
-	private String description;
-	private String serviceDate;
+	private String description, serviceDate;
+	private int employeeID, droneID, partID;
 	
 	
 	
@@ -13,6 +13,9 @@ public class DroneService
 	{
 		serviceID = 0; 
 		description = "";
+		serviceDate = "";
+		employeeID = 0;
+		droneID = 0;
 	}
 	
 	
@@ -48,4 +51,35 @@ public class DroneService
 		
 		this.serviceDate = servicedate;
 	}
+
+
+	public int getEmployeeID() {
+		return employeeID;
+	}
+
+
+	public void setEmployeeID(int employeeID) {
+		this.employeeID = employeeID;
+	}
+
+
+	public int getDroneID() {
+		return droneID;
+	}
+
+
+	public void setDroneID(int droneID) {
+		this.droneID = droneID;
+	}
+
+	public int getPartID() {
+		return partID;
+	}
+
+
+	public void setPartID(int partID) {
+		this.partID = partID;
+	}
+
+
 }

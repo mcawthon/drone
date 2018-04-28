@@ -1,6 +1,8 @@
-package helpers;
+package Helpers;
 
 import java.sql.SQLException;
+
+import model.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,31 +10,33 @@ import java.sql.ResultSet;
 
 public class LoginHelper
 {
-	DBConnection dbc = new DBConnection("root", "root");
+	DBConnection dbc = new DBConnection("root", "9921559");
 	Connection conn = dbc.getConnection();
 	
-	public boolean validateUser(String user, String password)
+	public PreparedStatement validateUserPS;
+	
+	public User validateUser(String username, String password) throws SQLException 
 	{
-		String sql = "select * from Users where userID = ? and password = ?;";
-		
+		String sql = "select * from Users where userID = ? and password = ?";
+		User user = null;
 		try 
 		{
-			PreparedStatement ps  = conn.prepareStatement(sql);
+			validateUserPS = conn.prepareStatement(sql);
 			
-			ps.setString(1, user);
-			ps.setString(2, password);
+			validateUserPS.setString(1, username);
+			validateUserPS.setString(2, password);
 			
-			ResultSet rs = ps.executeQuery();
+			ResultSet rs = validateUserPS.executeQuery();
 			
 			if (rs.next())
 			{
-				return true;
+				user = new User(rs.getString("userID"), rs.getString("password"));
 			}
 		}
 		catch(SQLException e)
 		{
-			
+			System.out.println(e.getClass().getName() + ": " + e.getMessage());
 		}
-		return false;
+		return user;
 	}
 }

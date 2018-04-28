@@ -1,4 +1,4 @@
-package helpers;
+package Helpers;
 
 /**
  * This class will help to create a String to build dynamic html

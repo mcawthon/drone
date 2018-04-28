@@ -1,4 +1,4 @@
-package helpers;
+package Helpers;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -148,7 +148,7 @@ public class ReadRecord
 			
 			part.setPartID(this.PartResults.getInt("partID"));
 			part.setSerialNum(this.PartResults.getString("serialNum"));
-			part.setExpirationDate(this.PartResults.getDate("expirationDate"));
+			part.setExpirationDate(this.PartResults.getString("expirationDate"));
 			part.setSupplierID(this.PartResults.getString("supplierID"));
 			part.setCondition(this.PartResults.getString("condition"));
 			part.setReorderLevel(this.PartResults.getInt("reorderLevel"));

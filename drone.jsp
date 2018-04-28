@@ -23,26 +23,26 @@
         <tr>
             <td>Make:</td>
             <td>TEST12345</td>
-<!--            <td><%></%></td> -->
+<!--            <td><%= %></td> -->
         </tr>
         <tr>
             <td>Model:</td>
             <td>TEST12345</td>
-<!--            <td><%></%></td> -->
+<!--            <td><%= %></td> -->
         </tr>
         <tr>
             <td>Year:</td>
             <td>TEST12345</td>
-<!--            <td><%></%></td> -->
+<!--            <td><%= %></td> -->
         </tr><tr>
             <td>VIN:</td>
             <td>TEST12345</td>
-<!--            <td><%></%></td> -->
+<!--            <td><%= %></td> -->
         </tr>
         <tr>
             <td>FAA <br>License:</td>
             <td>TEST12345</td>
-<!--            <td><%></%></td> -->
+<!--            <td><%= %></td> -->
         </tr>
     </table>
         <br>

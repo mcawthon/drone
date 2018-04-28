@@ -1,4 +1,4 @@
-package helpers;
+package Helpers;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 import model.Drone;
 import model.DroneService;
-import helpers.HTMLHelper;
+import Helpers.HTMLHelper;
 
 
 public class ReadQuery {
@@ -147,7 +147,7 @@ public class ReadQuery {
 				hh.LineBreak();
 				
 				//code to do html for service history
-				hh.PlainText(getDroneServiceHTML());
+				//hh.PlainText(getDroneServiceHTML());
 				
 			}
 		} catch (SQLException e) {
@@ -160,46 +160,46 @@ public class ReadQuery {
 		return hh.returnHTML();
 	}
 	
-	public String getDroneServiceHTML()
-	{
-		 HTMLHelper hh = new HTMLHelper();
-		 
-		try {
-			hh.openFormTag();
-			DroneService ds = new DroneService();
-			ds.setServiceID(this.DroneServiceHistoryResults.getInt("serviceid"));
-			ds.setDate(this.DroneServiceHistoryResults.getString("date"));
-			
-			hh.openTableTag();
-				hh.openTableRowTag();
-					hh.openTableCellTag();
-						hh.PlainText("Date");
-					hh.closeTableCellTag();
-					hh.openTableCellTag();
-						hh.PlainText("Service ID");
-					hh.closeTableCellTag();
-				hh.closeTableRowTag();
-			while(this.DroneServiceHistoryResults.next())
-			{
-				hh.openTableRowTag();
-					hh.openTableCellTag();
-						hh.PlainText(ds.getDate());
-					hh.closeTableCellTag();
-					hh.openTableCellTag();
-						hh.PlainText(ds.getServiceID());
-					hh.closeTableCellTag();
-				hh.closeTableRowTag();
-			}
-			
-			hh.closeTableTag();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return hh.returnHTML();
-		
-		}
+//	public String getDroneServiceHTML()
+//	{
+//		 HTMLHelper hh = new HTMLHelper();
+//		 
+//		try {
+//			hh.openFormTag();
+//			DroneService ds = new DroneService();
+//			ds.setServiceID(this.DroneServiceHistoryResults.getInt("serviceid"));
+//			ds.setDate(this.DroneServiceHistoryResults.getString("date"));
+//			
+//			hh.openTableTag();
+//				hh.openTableRowTag();
+//					hh.openTableCellTag();
+//						hh.PlainText("Date");
+//					hh.closeTableCellTag();
+//					hh.openTableCellTag();
+//						hh.PlainText("Service ID");
+//					hh.closeTableCellTag();
+//				hh.closeTableRowTag();
+//			while(this.DroneServiceHistoryResults.next())
+//			{
+//				hh.openTableRowTag();
+//					hh.openTableCellTag();
+//						hh.PlainText(ds.getDate());
+//					hh.closeTableCellTag();
+//					hh.openTableCellTag();
+//						hh.PlainText(ds.getServiceID());
+//					hh.closeTableCellTag();
+//				hh.closeTableRowTag();
+//			}
+//			
+//			hh.closeTableTag();
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		return hh.returnHTML();
+//		
+//		}
 
 	
 	

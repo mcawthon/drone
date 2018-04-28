@@ -2,7 +2,7 @@
     pageEncoding="US-ASCII"%>
     
 <%
-    String repairTable = (String) request.getAttribute("repairsTable");
+    String repairstable = (String) request.getAttribute("repairsTable");
 %> 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -22,6 +22,10 @@
         <div style="margin-top: 45px;">
             <%= repairstable %>
         </div>
+        
+        <p>You have successfully logged in, congratulations.<br>
+Click <a href="login?logout=true">here</a> to log back out.
+</p>
         
 	</div>
 </body>

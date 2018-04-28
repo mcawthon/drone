@@ -11,6 +11,12 @@ public class User
 		password = "";
 	}
 	
+	public User(String userID, String password)
+	{
+		this.userID = userID;
+		this.password = password;
+	}
+	
 	public void setUserID(String userID)
 	{
 		this.userID = userID;

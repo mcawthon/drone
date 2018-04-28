@@ -1,4 +1,4 @@
-package helpers;
+package Helpers;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -58,7 +58,7 @@ public class UpdateQuery {
 			
 			ps.setInt(1, part.getPartID());
 			ps.setString(2, part.getSerialNum());
-			ps.setDate(3, part.getExpirationDate());
+			ps.setString(3, part.getExpirationDate());
 			ps.setString(4, part.getSupplierID());
 			ps.setString(5, part.getCondition());
 			ps.setInt(6, part.getReorderLevel());
